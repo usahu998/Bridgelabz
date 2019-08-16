@@ -1,30 +1,48 @@
-package AlgorithmPrograms;
+package com.bridgelabz.utility;
 
 import java.util.Arrays;
-
+/*
+ * @Author Upendra Sahu
+ * 
+ * */
 public class Utility
 {
-	static boolean isAnagram(String s1,String s2)
+	
+	/* @Purpose check Anagram
+	 * @para String s1
+	 * @para String s2
+	 * @return boolean
+	 * */
+	
+	
+	
+	
+	public static boolean isAnagram(String s1,String s2)
 	{
-		if(s1.length()!=s2.length())
+		if(s1.length()!=s2.length())  //comparing length
 		{
 			return false;
 		}
 		else
 		{
-			char a1[]=s1.toLowerCase().toCharArray();
-			char a2[]=s2.toLowerCase().toCharArray();
-			Arrays.sort(a1);
-			Arrays.sort(a2);
+			char a1[]=s1.toLowerCase().toCharArray();  //String to character Array
+			char a2[]=s2.toLowerCase().toCharArray();  //String to character Array
+			Arrays.sort(a1);                            //Arrange in ascending order
+			Arrays.sort(a2);							//Arrange in ascending order
 			
-			if(Arrays.equals(a1, a2))
+			if(Arrays.equals(a1, a2))                 //check both array are equal or not
 				return true;
 		}
 		return false;
 	}
 	
+	/* @Purpose isPrime
+	 * @para no
+	 * @return int array
+	 * */
 	
-	static int[] isPrime()
+	
+	public static int[] isPrime()
 	{
 		int k=0;
 		int a[]=new int[1000];
@@ -53,6 +71,7 @@ public class Utility
 				
 				
 			}
+			// storing in new array with new size
 			int c[]=new int[k];
 			for (int j = 0; j < k; j++) 
 			{
@@ -63,24 +82,31 @@ public class Utility
 			//System.out.println("Total number of prime number upto 1 - 100 is=" + sum);
 	}
 	
+	/* @Purpose isBinarySearch
+	 * @para int array
+	 * @para int key
+	 * @para int low
+	 * @para int high
+	 * @return int
+	 * */
 	
-	static int isBinarySearch(int a[],int key,int low,int high)
+	public static int isBinarySearch(int a[],int key,int low,int high)
 	{
 		int mid;
 		while(low<=high)
 		{
-			mid=(low+high)/2;
+			mid=(low+high)/2;   // find mid value
 			
 			if(key==a[mid])
 			{
 				return mid;
 			} 
-			else if(key<=a[mid])
+			else if(key<=a[mid])  // key is less than mid
 			{
 				low=low;
 				high=mid-1;
 			}
-			else if(key>=a[mid])
+			else if(key>=a[mid])   // key is greater than mid
 			{
 				low=mid+1;
 				high=high;
@@ -91,7 +117,14 @@ public class Utility
 		
 	}
 	
-	int BinarySearchString(String s[],String key)
+	
+	/* @Purpose BinarySearchString
+	 * @para String Array
+	 * @para String key
+	 * @return int
+	 * */
+	
+	public int BinarySearchString(String s[],String key)
 	{
 		int low=0;
 		int high=s.length;
@@ -116,7 +149,14 @@ public class Utility
 		
 	}
 	
-	static void isInsertionSortString(String a[])
+	
+
+	/* @Purpose BinarySearchString
+	 * @para String Array
+	 * @para String key
+	 * @return int
+	 * */
+	public static void isInsertionSortString(String a[])
 	{
 		 
 			System.out.println("before sorting");
@@ -138,7 +178,7 @@ public class Utility
 	}
 	
 	
-	static void insertionSortInteger(int a[])
+	public static void insertionSortInteger(int a[])
 	{
 		 for (int i = 1; i < a.length; i++)
 		 {
@@ -162,7 +202,7 @@ public class Utility
 		
 	}
 
-	static void bubbleSort(int a[])
+	public static void bubbleSort(int a[])
 	{
 		System.out.println("Before sorting");
 		for (int i = 0; i < a.length; i++) 
@@ -219,7 +259,7 @@ public class Utility
 
 	}
 	
-	static void isMonthlySalary(int p,double R,int y)
+	public static void isMonthlySalary(int p,double R,int y)
 	{
 	double n=12*y;
 	double r=R/(12*100);
@@ -229,5 +269,56 @@ public class Utility
 	
 	System.out.println("Monthly payment is = "+payment);
 	}
+	
+	
+	/* @Purpose isLeapYear
+	 * @para int n  = year
+	 * @return boolean
+	 * */
+	
+	public static boolean isLeapYear(int n)
+	{
+		if(n>999 && n<=9999)
+		{
+			if(n%400==0 || n%4==0 && n%100!=0)   //formula
+			{
+				//System.out.println(n+" is a leap year ");
+				return true;
+			}
+			else
+			{
+				//System.out.println(n+" is not a leap year");
+				return false;
+			}
+		}
+		else
+		{
+			//System.out.println("invalid year");
+			return false;
+		}
 
-}
+	}
+	
+
+	/* @Purpose find day
+	 * @para int m0  = month
+	 * @para int d0 = date
+	 * @para int y0 = year
+	 * @return int
+	 * */
+	
+	public static int day(int m0,int d0,int y0 )
+	{
+		y0=y0-(14-m0)/12;
+		int x=y0+y0/4-y0/100+y0/400;
+		m0=m0+12*((14-m0)/12)-2;
+		d0=(d0+x+31*m0/12)%7;
+		return d0;
+		
+	}
+
+
+	
+	}
+
+
