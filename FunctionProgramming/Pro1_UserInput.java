@@ -19,18 +19,12 @@ public class Pro1_UserInput {
 			if(st[i].equals("<<UserName>>"))
 					st[i]=str;
 		}
-		
-		
 		for (int i = 0; i < st.length; i++) 
 		{
 			System.out.print(st[i]+" ");
 		}
-		
-
 	}
 		else
-			System.err.println("invalid minimum three character  ");
-
-
+			System.err.println("invalid minimum three character");
 	}
 }
